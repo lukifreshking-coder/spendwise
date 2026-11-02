@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SpendWise - Track your income, expenses and budget.">
+  <title>SpendWise | Personal Finance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>💰 SpendWise</h2>
+    <p class="nav-label">MENU</p>
+    <a class="active" href="#dashboard">▦ Dashboard</a>
+    <a href="#transactions">⇄ Transactions</a>
+    <a href="#budget">◎ Budget</a>
+    <div class="sidebar-bottom">Your money, your control.</div>
+  </aside>
+
+  <main class="main">
+    <header>
+      <div>
+        <p class="muted">PERSONAL FINANCE</p>
+        <h1>Dashboard</h1>
+        <p class="muted">Welcome back! Here's your financial overview.</p>
+      </div>
+      <span class="date" id="today"></span>
+    </header>
+
+    <section class="summary">
+      <article class="card balance">
+        <p>Total Balance</p>
+        <h2 id="balance">KES 0</h2>
+        <span>Available balance</span>
+      </article>
+      <article class="card income">
+        <p>Total Income</p>
+        <h2 id="income">KES 0</h2>
+        <span>Money received</span>
+      </article>
+      <article class="card expenses">
+        <p>Total Expenses</p>
+        <h2 id="expenses">KES 0</h2>
+        <span>Money spent</span>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel" id="transactions">
+        <div class="panel-heading">
+          <div>
+            <h2>Recent Transactions</h2>
+            <p class="muted">Manage your money movements</p>
+          </div>
+        </div>
+
+        <form id="transactionForm">
+          <input id="description" type="text" placeholder="Transaction description" required>
+          <input id="amount" type="number" min="1" step="0.01" placeholder="Amount (KES)" required>
+          <select id="type">
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+          <select id="category">
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Shopping</option>
+            <option>Education</option>
+            <option>Entertainment</option>
+            <option>Bills</option>
+            <option>Salary</option>
+            <option>Other</option>
+          </select>
+          <button type="submit">+ Add Transaction</button>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="transactionList"></tbody>
+          </table>
+        </div>
+        <p id="emptyMessage" class="muted empty">No transactions yet. Add your first transaction above!</p>
+      </article>
+
+      <article class="panel" id="budget">
+        <h2>Monthly Budget</h2>
+        <p class="muted">Set a spending limit for yourself.</p>
+        <form id="budgetForm">
+          <input id="budgetAmount" type="number" min="1" placeholder="Budget amount (KES)" required>
+          <button type="submit">Set Budget</button>
+        </form>
+        <div class="budget-info">
+          <p>Monthly spending</p>
+          <h2 id="budgetSpent">KES 0</h2>
+          <div class="progress">
+            <div id="progressBar"></div>
+          </div>
+          <p id="budgetStatus" class="muted">Set a budget to get started.</p>
+        </div>
+      </article>
+    </section>
+
+    <footer>© 2026 SpendWise. Take control of your finances.</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
